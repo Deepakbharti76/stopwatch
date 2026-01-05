@@ -1,41 +1,66 @@
-let seconds = 0;
-let minutes = 0;
-let hours   = 0;
-let timer   = null;
-
-function updateDisplay(){
-  document.getElementById("display").innerText =
-    (hours   < 10 ? "0" + hours   : hours)   + ":" +
-    (minutes < 10 ? "0" + minutes : minutes) + ":" +
-    (seconds < 10 ? "0" + seconds : seconds);
+body{
+  margin:0;
+  font-family: "Poppins", Arial, sans-serif;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: radial-gradient(circle at top,#0f2027,#000);
+  color:#fff;
 }
 
-function start(){
-  if(timer !== null) return;
-
-  timer = setInterval(() => {
-    seconds++;
-
-    if(seconds === 60){
-      seconds = 0;
-      minutes++;
-    }
-    if(minutes === 60){
-      minutes = 0;
-      hours++;
-    }
-
-    updateDisplay();
-  }, 1000);
+.app{
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(15px);
+  padding: 40px 55px;
+  border-radius: 25px;
+  text-align:center;
+  box-shadow: 0 0 40px rgba(0,255,255,.3);
 }
 
-function stop(){
-  clearInterval(timer);
-  timer = null;
+.title{
+  margin-bottom:20px;
+  letter-spacing:2px;
 }
 
-function reset(){
-  stop();
-  seconds = minutes = hours = 0;
-  updateDisplay();
+.time{
+  font-size:60px;
+  font-weight:700;
+  letter-spacing:3px;
+  margin:25px 0;
+}
+
+.buttons{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+}
+
+.btn{
+  padding:12px 30px;
+  border:none;
+  border-radius:40px;
+  cursor:pointer;
+  font-weight:600;
+  font-size:15px;
+  transition:.3s;
+}
+
+.start{background:#00ff99;}
+.stop{background:#ff4d4d;}
+.reset{background:#ffc107;color:#000;}
+
+.btn:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 15px rgba(255,255,255,.7);
+}
+
+.credit{
+  margin-top:25px;
+  font-size:14px;
+  opacity:.8;
+}
+
+.credit span{
+  color:#00ffff;
 }
