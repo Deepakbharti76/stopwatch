@@ -1,44 +1,33 @@
-let timer;
 let seconds = 0, minutes = 0, hours = 0;
-let isRunning = false;
+let timer = null;
 
 function updateDisplay() {
-  let h = hours < 10 ? "0" + hours : hours;
-  let m = minutes < 10 ? "0" + minutes : minutes;
-  let s = seconds < 10 ? "0" + seconds : seconds;
-  document.getElementById("display").innerText = `${h}:${m}:${s}`;
+  document.getElementById("display").innerText =
+    (hours < 10 ? "0" + hours : hours) + ":" +
+    (minutes < 10 ? "0" + minutes : minutes) + ":" +
+    (seconds < 10 ? "0" + seconds : seconds);
 }
 
 function start() {
-  if (!isRunning) {
-    isRunning = true;
-    timer = setInterval(() => {
-      seconds++;
-      if (seconds === 60) {
-        seconds = 0;
-        minutes++;
-      }
-      if (minutes === 60) {
-        minutes = 0;
-        hours++;
-      }
-      updateDisplay();
-    }, 1000);
-  }
+  if (timer !== null) return;
+
+  timer = setInterval(() => {
+    seconds++;
+
+    if (seconds === 60) { seconds = 0; minutes++; }
+    if (minutes === 60) { minutes = 0; hours++; }
+
+    updateDisplay();
+  }, 1000);
 }
 
 function stop() {
   clearInterval(timer);
-  isRunning = false;
+  timer = null;
 }
 
 function reset() {
-  clearInterval(timer);
-  isRunning = false;
-  seconds = 0;
-  minutes = 0;
-  hours = 0;
+  stop();
+  seconds = minutes = hours = 0;
   updateDisplay();
 }
-
-updateDisplay();
