@@ -1,27 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Stopwatch | Deepak</title>
-  <link rel="stylesheet" href="style.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stopwatch | Deepak Kumar</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="wrapper">
-  <div class="card">
-    <h2>⏱ Stopwatch</h2>
-    <h1 id="display">00:00:00</h1>
+<div class="app">
+  <h2 class="title">⏱ Stopwatch</h2>
 
-    <div class="buttons">
-      <button class="start" onclick="start()">Start</button>
-      <button class="stop" onclick="stop()">Stop</button>
-      <button class="reset" onclick="reset()">Reset</button>
-    </div>
+  <div id="display" class="time">00:00:00</div>
 
-    <p class="tag">Built by Deepak Kumar</p>
+  <div class="buttons">
+    <button onclick="start()" class="btn start">Start</button>
+    <button onclick="stop()" class="btn stop">Stop</button>
+    <button onclick="reset()" class="btn reset">Reset</button>
   </div>
+
+  <p class="credit">Built by <span>Deepak Kumar</span></p>
 </div>
 
 <script src="script.js"></script>
