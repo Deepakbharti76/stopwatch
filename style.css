@@ -1,0 +1,39 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f4f4f4;
+}
+.container {
+  text-align: center;
+  background: #fff;
+  padding: 20px 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+h1 {
+  font-size: 48px;
+  margin: 20px 0;
+}
+button {
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #fff;
+  transition: 0.3s;
+}
+
+/* अलग-अलग बटन के लिए रंग */
+button:nth-child(2) { background: #28a745; }  /* Start - Green */
+button:nth-child(3) { background: #dc3545; }  /* Stop - Red */
+button:nth-child(4) { background: #ffc107; color: #000; }  /* Reset - Yellow */
+
+/* Hover effect */
+button:hover {
+  opacity: 0.8;
+}
