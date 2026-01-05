@@ -49,9 +49,9 @@ button {
   transition: 0.25s;
 }
 
-#startBtn { background: #00c853; color: #000; }
-#stopBtn  { background: #ff5252; color: #000; }
-#resetBtn { background: #ffab00; color: #000; }
+#startBtn { background: #00c853; color: #28a745; }
+#stopBtn  { background: #ff5252; color: #dc3545; }
+#resetBtn { background: #ffab00; color: #ffc107; }
 
 button:hover {
   transform: translateY(-2px);
