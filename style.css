@@ -1,46 +1,41 @@
-body {
-  margin: 0;
-  font-family: "Poppins", Arial, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: radial-gradient(circle at top, #0f2027, #000);
-  color: white;
+let seconds = 0;
+let minutes = 0;
+let hours   = 0;
+let timer   = null;
+
+function updateDisplay(){
+  document.getElementById("display").innerText =
+    (hours   < 10 ? "0" + hours   : hours)   + ":" +
+    (minutes < 10 ? "0" + minutes : minutes) + ":" +
+    (seconds < 10 ? "0" + seconds : seconds);
 }
 
-.container {
-  text-align: center;
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(15px);
-  padding: 40px 50px;
-  border-radius: 20px;
-  box-shadow: 0 0 30px rgba(0,255,255,0.25);
+function start(){
+  if(timer !== null) return;
+
+  timer = setInterval(() => {
+    seconds++;
+
+    if(seconds === 60){
+      seconds = 0;
+      minutes++;
+    }
+    if(minutes === 60){
+      minutes = 0;
+      hours++;
+    }
+
+    updateDisplay();
+  }, 1000);
 }
 
-h1 {
-  font-size: 52px;
-  margin: 25px 0 35px;
-  letter-spacing: 2px;
+function stop(){
+  clearInterval(timer);
+  timer = null;
 }
 
-button {
-  padding: 12px 26px;
-  margin: 8px;
-  font-size: 16px;
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: .3s;
-}
-
-/* Buttons */
-button:nth-child(2) { background: #00ff99; }  /* Start - Green */
-button:nth-child(3) { background: #ff4d4d; }  /* Stop - Red */
-button:nth-child(4) { background: #ffc107; color:#000; }  /* Reset - Yellow */
-
-button:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 10px rgba(255,255,255,0.6);
+function reset(){
+  stop();
+  seconds = minutes = hours = 0;
+  updateDisplay();
 }
