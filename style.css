@@ -46,9 +46,9 @@ body{
   transition:.3s;
 }
 
-.start{background:#00ff99;}
-.stop{background:#ff4d4d;}
-.reset{background:#ffc107;color:#000;}
+button:nth-child(2) { background: #28a745; }  /* Start - Green */
+button:nth-child(3) { background: #dc3545; }  /* Stop - Red */
+button:nth-child(4) { background: #ffc107; color: #000; }  /* Reset - Yellow */
 
 .btn:hover{
   transform:scale(1.1);
